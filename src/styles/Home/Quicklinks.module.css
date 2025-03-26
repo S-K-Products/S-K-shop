@@ -1,0 +1,199 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  background-color: #F4590F;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+  position: relative; /* For logo positioning */
+}
+
+.quickLinks,
+.reachUs {
+  flex: 1;
+  margin: 10px 100px;
+}
+
+.logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); /* Center the logo */
+}
+
+.logoImage {
+  width: 150px; /* Adjust logo size */
+  height: auto;
+  margin-right: 150px;
+}
+
+.heading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.reachUs .heading {
+  margin-left: 150px;
+}
+
+.linksList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.quickLinks .linkItem {
+  max-width: 150px;
+}
+
+.linkItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+
+.linkItem:hover {
+  transform: translateX(10px); /* Smooth hover animation */
+}
+
+.linkItem a {
+  text-decoration: none;
+  color: #aaa8a8;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.linkItem a:hover {
+  color: #d279f5;
+}
+
+.icon {
+  color: #ffffff;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.icon:hover {
+  color: #d279f5; /* Darker blue on hover */
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 150px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.3s ease;
+}
+
+.contactIcon {
+  color: #ffffff;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.contactIcon:hover {
+  color: #d279f5; /* Darker blue on hover */
+}
+
+.contactItem p {
+  margin: 0;
+  color: #aaa8a8;
+  font-size: 1rem;
+}
+
+/* Tablet Mode */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .quickLinks {
+    flex: 1;
+  }
+
+  .reachUs {
+    flex: 1;
+  }
+
+  .logoImage {
+    margin-left: 100px;
+  }
+
+  .logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* Center the logo */
+  }
+}
+
+@media (max-width: 1200px) {
+  .reachUs {
+    margin-right: 0px;
+  }
+  .quickLinks {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 800px) {
+  .reachUs .heading {
+    margin-left: 50px;
+    margin-right: 0;
+  }
+  .contactInfo {
+    margin-left: 50px;
+    margin-right: 0;
+  }
+}
+
+/* Mobile Mode */
+@media (max-width: 767px) {
+  .container {
+    flex-direction: column;
+    align-items: center; /* Center everything in mobile mode */
+    text-align: center; /* Center text in mobile mode */
+  }
+
+  .quickLinks,
+  .reachUs {
+    width: 100%;
+    margin: 10px 0;
+    text-align: left;
+  }
+
+  .logo {
+    position: static; /* Reset logo positioning */
+    transform: none; /* Reset logo positioning */
+    margin-bottom: 20px; /* Add spacing below the logo */
+  }
+
+  .logoImage {
+    margin: 0;
+  }
+
+  .reachUs .heading {
+    margin-left: 0px;
+  }
+
+  .contactInfo {
+    margin: 0;
+  }
+
+  .linkItem {
+    justify-content: left; /* Center items in mobile mode */
+  }
+}

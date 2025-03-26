@@ -1,0 +1,170 @@
+/* Container */
+.contactContainer {
+    /* background: #111; */
+    color: #fff;
+    padding: 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #fff;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Layout */
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    gap: 40px;
+  }
+  
+  /* Left Side - Form */
+  .formSection {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+  }
+  
+  .heading {
+    color: #F4590F;
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .input, .textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #F4590F;
+    background: transparent;
+    color: #000;
+  }
+  
+  .textarea {
+    height: 80px;
+    resize: none;
+  }
+  
+  .submitButton {
+    background: #F4590F;
+    border-radius: 7px;
+    font-size: 17px;
+    color: rgb(196, 236, 200);
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .submitButton:hover{
+    background-color: #eb8352;
+    color: #ffffff;
+    border: solid -100px #f75f19;
+  }
+  
+  .links {
+    margin-top: 15px;
+  }
+  .link {
+    display: block;
+    color: #eb8352;
+    text-decoration: none;
+    margin: 5px 0;
+    transition-duration: 0.2s
+  }
+  
+  .link:hover{
+    transform: translateX(10px);
+  }
+
+  
+  /* Right Side - Contact Info */
+  .reachSection {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+  }
+  
+  /* Maps and Locations in Same Row */
+  .locations {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .locationRow {
+    display: flex;
+    align-items: center;
+    background: #eb8352;
+    height: 300px;
+    padding: 25px;
+    border-radius: 8px;
+  }
+  
+  .map {
+    width: 250px;
+    height: 180px;
+    border-radius: 8px;
+    border: none;
+  }
+  
+  .locationDetails {
+    margin-left: 15px;
+  }
+  
+  .locationDetails p {
+    margin: 8px 0;
+  }
+  
+  /* Icons */
+  .icon {
+    margin-right: 10px;
+    color: #7FE1A5;
+  }
+  
+  /* Responsive Fix */
+  @media (max-width: 900px) {
+    .content {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .content .formSection h3 {
+        text-align: center;
+    }
+    .content .formSection form{
+        text-align: center;
+        align-items: center;
+    }
+  
+    .formSection, .reachSection {
+      width: 100%;
+    }
+  
+    .locationRow {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .map {
+      width: 100%;
+      max-width: 400px;
+    }
+  
+    .locationDetails {
+      margin-left: 0;
+      margin-top: 10px;
+    }
+  }
+  

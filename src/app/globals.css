@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    background-color: rgb(31, 30, 30);
+}
+
+/* Global Styles (add this to your global CSS file, e.g., globals.css) */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    box-sizing: border-box; /* Ensure padding and border are included in element width */
+  }
+  
+  *, *::before, *::after {
+    box-sizing: inherit; /* Inherit box-sizing for all elements */
+  }
+  
+  /* Ensure all containers are constrained */
+  .container {
+    max-width: 100%;
+    width: 100%;
+    padding: 0 20px; /* Add padding to prevent content from touching the edges */
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  
+  /* Ensure images and media don't overflow */
+  img, video, iframe {
+    max-width: 100%;
+    height: auto;
+  }

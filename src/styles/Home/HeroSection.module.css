@@ -1,0 +1,272 @@
+/* Hero Section */
+.heroSection {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Slides */
+.slidesContainer {
+  display: flex;
+  width: 500%;
+  height: 120%;
+  transition: transform 1s ease-in-out;
+}
+
+.slide {
+  flex: 0 0 20%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.slideContent {
+  max-width: 800px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.slideContent h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.slideContent h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.slideContent p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.slideContent button {
+  padding:20px 40px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #F4590F;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.slideContent button:hover {
+  background-color: #eb8352;
+  border: 2px solid #F4590F;
+}
+
+/* Navigation Arrows */
+.arrowLeft,
+.arrowRight {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 100; /* Ensure arrows are above slides */
+}
+
+.arrowLeft {
+  left: 20px;
+}
+
+.arrowRight {
+  right: 20px;
+}
+
+/* Welcome Slide */
+@font-face {
+  font-family: "Qurova";
+  src: url("/Fonts/QurovaDEMO-Bold.otf") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.welcomeSlide .slideContent {
+  text-align: center;
+}
+
+.welcomeSlide .slideContent h1 {
+  color: #97b3e2;
+  font-size: 30px;
+}
+
+.welcomeSlide .slideContent h2 {
+  font-size: 60px;
+  line-height: 0%;
+  font-family: "Qurova";
+}
+
+.welcomeSlide .slideContent p {
+  margin-top: 25%;
+}
+
+/* Gems Slide */
+.gemsSlide .slideContent {
+  text-align: left;
+  margin-bottom: 50px;
+}
+
+.gemsSlide .slideContent h1 {
+  color: #fd6595;
+  font-size: 60px;
+  font-family: "Qurova";
+}
+
+.gemsSlide .slideContent button {
+  background-color: #8a003b;
+  color: #f3c5c5;
+}
+
+/* Currency Slide */
+.currencySlide .slideContent {
+  text-align: left;
+  margin-bottom: 50px;
+}
+
+.currencySlide .slideContent h1 {
+  color: #6efc43;
+  font-size: 60px;
+  font-family: "Qurova";
+}
+
+.currencySlide .slideContent button {
+  background-color: #2ba502;
+  color: #d7fac9;
+}
+
+/* Gold Slide */
+.goldSlide .slideContent {
+  text-align: left;
+  margin-bottom: 50px;
+}
+
+.goldSlide .slideContent h1 {
+  color: #e7c358;
+  font-size: 60px;
+  font-family: "Qurova";
+}
+
+.goldSlide .slideContent button {
+  background-color: #c79e24;
+  color: #fcfdc7;
+}
+
+/* Premium Services Slide */
+.premiumSlide .slideContent {
+  text-align: left;
+  margin-bottom: 50px;
+}
+
+.premiumSlide .slideContent h1 {
+  color: #ddbfa9;
+  font-size: 60px;
+  font-family: "Qurova";
+}
+
+.premiumSlide .slideContent button {
+  background-color: #cc8958;
+  color: #e4e9dc;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .slideContent {
+    text-align: center !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .slideContent h1 {
+    font-size: 2rem;
+  }
+
+  .slideContent h2 {
+    font-size: 1.5rem;
+  }
+
+  .slideContent p {
+    font-size: 1rem;
+  }
+
+  .slideContent button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+
+  .slide {
+    background-size: cover;
+    background-position: top;
+  }
+
+  .arrowLeft,
+  .arrowRight {
+    padding: 8px;
+  }
+
+  /* Welcome */
+  .welcomeSlide .slideContent h1 {
+    font-size: 20px;
+  }
+
+  .welcomeSlide .slideContent h2 {
+    font-size: 35px;
+  }
+
+  .premiumSlide .slideContent h1 {
+    font-size: 40px;
+  }
+}
+
+/* Navigation Arrows */
+.arrowLeft,
+.arrowRight {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  color: white;
+  border: none;
+  padding: 10px; /* Increase padding for larger arrows */
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  z-index: 10; /* Ensure arrows are above slides */
+  font-size: 24px; /* Increase font size for larger arrows */
+}
+
+.arrowLeft {
+  left: 0px;
+}
+
+.arrowRight {
+  right: 0px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .arrowLeft,
+  .arrowRight {
+    padding: 10px; /* Smaller padding for mobile */
+    font-size: 18px; /* Smaller font size for mobile */
+  }
+}
+
+@media (max-width: 450px) {
+  .welcomeSlide .slideContent h2 {
+    line-height: 100%;
+  }
+}

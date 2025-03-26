@@ -1,0 +1,197 @@
+.contactUs {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+/* Left Side Styles */
+.leftSide {
+  flex: 1;
+  padding: 20px;
+}
+
+.leftSide h1 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.leftSide p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.contactDetails h3 {
+  font-size: 1.5rem;
+  color: #ffffff;
+  padding-top: 10px;
+  margin-bottom: -15px;
+}
+
+.contactDetails p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.connectGrid {
+  display: flex;
+  gap: 20px;
+}
+
+.connectColumn {
+  flex: 1;
+}
+
+.connectColumn h4 {
+  font-size: 1.3rem;
+  color: #cacaca;
+  margin-bottom: 10px;
+}
+
+.connectColumn p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+/* Right Side Styles */
+.rightSide {
+  flex: 1;
+  padding: 20px;
+}
+
+.formBox {
+  background-color: #fffffff8;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px eb8352;
+}
+
+.formBox h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.formBox input,
+.formBox textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.formBox textarea {
+  resize: vertical;
+}
+
+.formBox button {
+  width: 100%;
+  padding: 10px;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.formBox button:hover {
+  background-color: #005bb5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contactUs {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .leftSide,
+  .rightSide {
+    padding: 10px;
+  }
+
+  .leftSide h1 {
+    font-size: 2rem;
+  }
+
+  .leftSide p {
+    font-size: 1rem;
+  }
+
+  .contactDetails h3 {
+    font-size: 1.3rem;
+  }
+
+  .contactDetails p {
+    font-size: 1rem;
+  }
+
+  .connectGrid {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .connectColumn h4 {
+    font-size: 1.2rem;
+  }
+
+  .connectColumn p {
+    font-size: 0.9rem;
+  }
+
+  .formBox h2 {
+    font-size: 1.5rem;
+  }
+
+  .formBox input,
+  .formBox textarea,
+  .formBox button {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .leftSide h1 {
+    font-size: 1.8rem;
+  }
+
+  .leftSide p {
+    font-size: 0.9rem;
+  }
+
+  .contactDetails h3 {
+    font-size: 1.2rem;
+  }
+
+  .contactDetails p {
+    font-size: 0.9rem;
+  }
+
+  .connectColumn h4 {
+    font-size: 1.1rem;
+  }
+
+  .connectColumn p {
+    font-size: 0.8rem;
+  }
+
+  .formBox h2 {
+    font-size: 1.3rem;
+  }
+
+  .formBox input,
+  .formBox textarea,
+  .formBox button {
+    font-size: 0.8rem;
+  }
+}

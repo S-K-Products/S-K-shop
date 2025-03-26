@@ -1,0 +1,170 @@
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+.header.scrolled {
+  background-color: #F4590F; /* Semi-transparent background when scrolled */
+}
+
+/* Logo */
+.logo {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.logoImage {
+  width: 150px;
+  height: auto;
+}
+
+/* Left and Right Navigation */
+.leftNav,
+.rightNav {
+  display: flex;
+  align-items: center;
+}
+
+.leftNav ul,
+.rightNav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.leftNav ul li,
+.rightNav ul li {
+  margin: 0 15px;
+}
+
+@font-face {
+  font-family: "Boldwinn";
+  src: url("/Fonts/Boldwinn.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.leftNav ul li a,
+.rightNav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-family: "Boldwinn", sans-serif;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.leftNav ul li a:hover,
+.rightNav ul li a:hover {
+  color: #000;
+}
+
+/* Mobile Menu Icon */
+.menuIcon {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Mobile Navigation (Full Screen) */
+.mobileNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px); /* Blur effect */
+  background-color: rgba(0, 0, 0, 0.281);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0; /* Start hidden */
+  visibility: hidden; /* Hide initially */
+  transition:
+    opacity 0.3s ease-in-out,
+    visibility 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.mobileNav.open {
+  opacity: 1; /* Fade in */
+  visibility: visible; /* Show when open */
+}
+
+.mobileNavHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+}
+
+.closeIcon {
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.closeIcon:hover {
+  transform: scale(1.1); /* Scale animation on hover */
+}
+
+.mobileNavLinks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.mobileNavLinks li {
+  margin: 20px 0;
+}
+
+.mobileNavLinks li a {
+  color: white;
+  font-family: "Boldwinn", sans-serif;
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.mobileNavLinks li a:hover {
+  color: #bdc003;
+  transform: scale(1.1); /* Scale animation on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .leftNav,
+  .rightNav {
+    display: none;
+  }
+
+  .menuIcon {
+    display: block;
+  }
+}
+
+@media (max-width: 1050px) {
+  .leftNav ul li a,
+  .rightNav ul li a {
+    margin-right: 0;
+    margin-left: 0;
+    font-size: 1.2em;
+  }
+}
