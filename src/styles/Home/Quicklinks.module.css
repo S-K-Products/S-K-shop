@@ -63,13 +63,13 @@
 
 .linkItem a {
   text-decoration: none;
-  color: #aaa8a8;
+  color: #ede7e7;
   font-size: 1rem;
   transition: color 0.3s ease;
 }
 
 .linkItem a:hover {
-  color: #d279f5;
+  color: #000000;
 }
 
 .icon {
@@ -79,7 +79,7 @@
 }
 
 .icon:hover {
-  color: #d279f5; /* Darker blue on hover */
+  color: #000000; /* Darker blue on hover */
 }
 
 .contactInfo {
@@ -103,12 +103,12 @@
 }
 
 .contactIcon:hover {
-  color: #d279f5; /* Darker blue on hover */
+  color: #000000; /* Darker blue on hover */
 }
 
 .contactItem p {
   margin: 0;
-  color: #aaa8a8;
+  color: #ebe4e4;
   font-size: 1rem;
 }
 

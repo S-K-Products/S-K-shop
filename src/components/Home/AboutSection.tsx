@@ -2,7 +2,7 @@ import styles from "../../styles/Home/AboutSection.module.css";
 
 const AboutSection = () => {
   return (
-    <section className={styles.aboutSection}>
+    <section className={styles.aboutSection}><br />
       <h1>About Us</h1>
       <div className={styles.aboutContainer}>
         <div className={styles.aboutPhoto}>

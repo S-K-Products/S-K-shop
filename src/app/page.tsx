@@ -6,6 +6,9 @@ import ContactSection from '../components/Home/ContactSection'
 import FeedBack from '../components/Home/feed-backs'
 import QuickLinks from '../components/Home/QuickLinks';
 
+
+
+
 const Home = () => {
   return (
     <>
@@ -14,6 +17,7 @@ const Home = () => {
       <ServicesSection />
       <ContactSection />
       <FeedBack/>
+      
       <QuickLinks />
     </>
   )

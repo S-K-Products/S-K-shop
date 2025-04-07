@@ -3,12 +3,14 @@
   padding: 4rem 0;
   text-align: center;
   background-color: #fff;
+  
 }
 
 .servicesSection h2 {
   font-size: 2.5rem;
   margin-bottom: 2rem;
   color: #000;
+  text-transform: uppercase;
 }
 
 .servicesContainer {
@@ -18,6 +20,7 @@
   position: relative;
   height: 400px;
   overflow: hidden;
+  margin: auto;
 }
 
 .servicesContainer h3 {
@@ -27,19 +30,21 @@
 .serviceCard {
   position: absolute;
   width: 300px;
-  background-color: #eb8352;
-  backdrop-filter: blur(10px);
-  padding: 1.5rem;
+  background-color: #f4590f;
+  backdrop-filter: blur(20px);
+  padding: 2rem;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.288);
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.281);
   transition: all 1s ease;
   opacity: 0;
+  border-radius: 10px;
 }
 
 .serviceCard.middle {
   transform: translateX(0) scale(1);
   opacity: 1;
   z-index: 2;
+  border-radius: 20px;
 }
 
 .serviceCard.left {
@@ -75,12 +80,12 @@
 .cardContent h3 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  color: #c9e2fd;
+  color: #ffffff;
 }
 
 .cardContent p {
   font-size: 1rem;
-  color: #d5d5d5;
+  color: #000000;
 }
 
 @media (max-width: 768px) {

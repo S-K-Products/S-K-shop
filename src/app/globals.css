@@ -3,8 +3,12 @@ body {
     padding: 0;
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
-    background-color: rgb(31, 30, 30);
+    background-color: rgb(255, 255, 255);
 }
+html {
+  scroll-behavior: smooth;
+}
+
 
 /* Global Styles (add this to your global CSS file, e.g., globals.css) */
 html, body {

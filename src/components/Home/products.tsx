@@ -2,7 +2,7 @@ import styles from "../../styles/product/product.module.css";
 
 const Stories = () => {
   return (
-    <section className={styles.aboutSection}>
+    <section  className={styles.aboutSection}>
       <h1>Our products</h1>
       <div className={styles.aboutContainer}>
 

@@ -7,27 +7,27 @@ const FeedBacks = () => {
   const services = [
     {
       title: "Chamath",
-      description: "Nice eggs. never taste good never had before like that”"
+      description: "Nice eggs. never taste good never had before like that",
     },
     {
       title: "Nimna",
-      description: "Eggs from non-farm hens mmmm."
+      description: "Eggs from non-farm hens mmmm.",
     },
     {
       title: "Achintha",
-      description: "Fresh eggs from farm hens. Nutrient is low"
+      description: "Fresh eggs from farm hens. Nutrient is low",
     },
     {
       title: "Udhana",
-      description: "Nice eggs. never taste good never had before like that”"
+      description: "Nice eggs. never taste good never had before like that",
     },
     {
-      title: "neranjana",
-      description: "Eggs from non-farm hens mmmm."
+      title: "Neranjana",
+      description: "Eggs from non-farm hens mmmm.",
     },
     {
-      title: "raj",
-      description: "Fresh eggs from farm hens. Nutrient is low"
+      title: "Raj",
+      description: "Fresh eggs from farm hens. Nutrient is low",
     },
   ];
 
@@ -54,19 +54,15 @@ const FeedBacks = () => {
 
   return (
     <section className={styles.servicesSection}>
-      <h2>Feec Backs</h2>
+      <h2 className={styles.sectionTitle}>Customer Feedbacks</h2>
       <div className={styles.servicesContainer}>
         {services.map((service, index) => {
           const position = getPosition(index);
-
           return (
             <div
               key={index}
               className={`${styles.serviceCard} ${styles[position]}`}
             >
-              <div
-                className={styles.cardImage}
-              ></div>
               <div className={styles.cardContent}>
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>

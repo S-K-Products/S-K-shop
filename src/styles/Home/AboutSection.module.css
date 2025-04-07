@@ -2,12 +2,13 @@
   .aboutSection {
     width: 100%;
     padding: 4rem 0;
+    background-color: #ffffff;
   }
 
   .aboutSection h1 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: #0000;
+    color: #000000;
     text-align: center;
   }
   
@@ -39,13 +40,13 @@
   }
 
   .aboutD{
-    color: white;
+    color: rgb(0, 0, 0);
     text-align: center;
     font-size: 20px;
   }
 
   .StoriesContent{
-    background-color: rgba(255, 255, 255, 0.776);
+    background-color: rgba(0, 0, 0, 0.776);
     width: 400px;
     height: 200px;
     border-radius: 20px;
@@ -55,7 +56,7 @@
     margin: 20px 30px;
     font-weight: 600;
     font-size: 18px;
-    color: #3F3E3E;
+    color: #000000;
     line-height: 100%;
     font-family: 'Poppins', sans-serif;
   }
@@ -118,13 +119,13 @@
   .aboutContent p {
     font-size: 22px;
     line-height: 1.5;
-    color: #d8d5d5;
+    color: #000000;
   }
   
   .aboutButton {
     padding: 10px 20px;
     font-size: 1rem;
-    background-color: #007bff;
+    background-color: #ff8000;
     color: #e9f0f7; 
     font-weight: bold;
     border: none; 

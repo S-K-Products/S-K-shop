@@ -1,116 +1,105 @@
-"use client"; // Mark this as a client component
+"use client";
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import styles from '../../styles/Home/Header.module.css';
 
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation"; // Import useRouter for navigation
-import { FaBars, FaTimes } from "react-icons/fa"; // Icons for menu and close
-import styles from "../../styles/Home/Header.module.css";
-
-const Header = () => {
+const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const router = useRouter(); // Use useRouter for navigation
+  const [scrollPosition, setScrollPosition] = useState(0);
 
-  // Toggle menu
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  // Toggle mobile menu
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-  // Handle scroll event
+  // Close menu
+  const closeMenu = () => setIsMenuOpen(false);
+
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
+    const handleScroll = () => setScrollPosition(window.scrollY);
+    const handleScrollCloseMenu = () => isMenuOpen && setIsMenuOpen(false);
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScrollCloseMenu);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', handleScrollCloseMenu);
+    };
+  }, [isMenuOpen]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) setIsMenuOpen(false);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Navigate to home page when logo is clicked
-  const goToHomePage = () => {
-    router.push("/"); // Navigate to the home page
-  };
+  const navItems = [
+    { path: '/newpage/home', label: 'Home' },
+    { path: '/newpage/product', label: 'Products' },
+    { path: '/newpage/about', label: 'About Us' },
+    { path: '/newpage/contact', label: 'Contact Us' }
+  ];
 
   return (
-    <>
-      <header
-        className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}
-      >
-        {/* Left Navigation Links */}
-        <nav className={styles.leftNav}>
-          <ul>
-            <li>
-              <a href="/newpage/about">About Us</a>
-            </li>
-            <li>
-              <a href="/newpage/">Services</a>
-            </li>
-          </ul>
-        </nav>
+    <nav className={`${styles.navbar} ${scrollPosition > 50 ? styles.scrolled : ''}`}>
+      <div className={styles.container}>
+        <div className={styles.navbarContent}>
+          {/* Logo */}
+          <a href="/newpage/home" className={styles.logo} onClick={closeMenu}>
+            <Image
+              src="/logo.png"
+              alt="Brand Logo"
+              width={150}
+              height={50}
+              className={styles.logoImage}
+            />
+          </a>
 
-        {/* Logo */}
-        <div className={styles.logo} onClick={goToHomePage}>
-          <img src="/logo.png" alt="Logo" className={styles.logoImage} />
-        </div>
-
-        {/* Right Navigation Links */}
-        <nav className={styles.rightNav}>
-          <ul>
-            <li>
-              <a href="/newpage/product">Products</a>
-            </li>
-            <li>
-              <a href="/newpage/contact">Contact</a>
-            </li>
-          </ul>
-        </nav>
-
-        {/* Mobile Menu Icon */}
-        <div className={styles.menuIcon} onClick={toggleMenu}>
-          {isMenuOpen ? <FaTimes /> : <FaBars />}
-        </div>
-
-        {/* Mobile Navigation (Full Screen) */}
-        <div className={`${styles.mobileNav} ${isMenuOpen ? styles.open : ""}`}>
-          <div className={styles.mobileNavHeader}>
-            <div className={styles.logo} onClick={goToHomePage}>
-              <img src="/logo.png" alt="Logo" className={styles.logoImage} />
-            </div>
-            <div className={styles.closeIcon} onClick={toggleMenu}>
-              <FaTimes />
-            </div>
+          {/* Desktop Nav */}
+          <div className={styles.desktopMenu}>
+            {navItems.map((item) => (
+              <a
+                key={item.path}
+                href={item.path}
+                onClick={closeMenu}
+                className={styles.navLink}
+              >
+                {item.label}
+              </a>
+            ))}
           </div>
 
-          {/* Mobile Navigation Links */}
-          <ul className={styles.mobileNavLinks}>
-            <li>
-              <a href="/newpage/about" onClick={toggleMenu}>
-                About Us
-              </a>
-            </li>
-            <li>
-              <a href="/newpage/services" onClick={toggleMenu}>
-                Services
-              </a>
-            </li>
-            <li>
-              <a href="/newpage/blog" onClick={toggleMenu}>
-                Blog & News
-              </a>
-            </li>
-            <li>
-              <a href="/newpage/contact" onClick={toggleMenu}>
-                Contact
-              </a>
-            </li>
-          </ul>
+          {/* Mobile Button */}
+          <button
+            onClick={toggleMenu}
+            className={styles.hamburger}
+            aria-expanded={isMenuOpen}
+            aria-label="Toggle menu"
+          >
+            <span className={`${styles.hamburgerLine} ${isMenuOpen ? styles.line1Open : ''}`} />
+            <span className={`${styles.hamburgerLine} ${isMenuOpen ? styles.line2Open : ''}`} />
+            <span className={`${styles.hamburgerLine} ${isMenuOpen ? styles.line3Open : ''}`} />
+          </button>
         </div>
-      </header>
-    </>
+      </div>
+
+      {/* Mobile Menu */}
+      <div className={`${styles.mobileMenu} ${isMenuOpen ? styles.mobileMenuOpen : ''}`}>
+        <div className={styles.mobileMenuInner}>
+          {navItems.map((item) => (
+            <a
+              key={item.path}
+              href={item.path}
+              onClick={closeMenu}
+              className={styles.mobileNavLink}
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </nav>
   );
 };
 
-export default Header;
+export default Navbar;

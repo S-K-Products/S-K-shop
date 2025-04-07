@@ -1,0 +1,103 @@
+.faqContainer {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    
+    
+  }
+  
+  .faqTitle {
+    font-size: 36px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: rgb(0, 0, 0);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .searchContainer {
+    position: relative;
+    margin-bottom: 30px;
+    border-color: #f4590f;
+  }
+  
+  .searchIcon {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    color: gray;
+  }
+  
+  .searchInput {
+    width: 100%;
+    padding: 10px 40px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+  }
+  
+  .searchInput:focus {
+    border-color: #f4590f;
+  }
+  
+  .faqList {
+    margin-top: 20px;
+    border-radius: 15px;
+  }
+  
+  .faqItem {
+    margin-bottom: 15px;
+    border-bottom:2px solid #f4590f;
+    border-radius: 15px;
+  }
+  
+  .faqQuestion {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px;
+    background-color: white;
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 15px;
+  }
+  
+  .faqQuestion:hover {
+    background-color: #f7f7f7;
+  }
+  
+  .faqAnswer {
+    padding: 15px;
+    background-color: #f4590f;
+    font-size: 16px;
+    color: #ffffff;
+    border-radius: 15px;
+  }
+  
+  .faqChevron {
+    width: 20px;
+    height: 20px;
+    color: gray;
+    transition: transform 0.3s;
+  }
+  
+  .faqChevron.up {
+    transform: rotate(180deg);
+  }
+  
+  .noFaqs {
+    text-align: center;
+    color: gray;
+    font-size: 18px;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+  }
+  

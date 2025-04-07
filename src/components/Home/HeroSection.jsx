@@ -1,122 +1,150 @@
-"use client"; // Mark this as a client component
-
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io"; // Import new arrow icons
+"use client";
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import styles from "../../styles/Home/HeroSection.module.css";
 
-const HeroSection = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const router = useRouter(); // Initialize useRouter
-
-  // Function to handle button click
-  const handleButtonClick = (path) => {
-    router.push(path); // Navigate to the specified path
-  };
+const CoverCarousel = () => {
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const slides = [
     {
-      backgroundImage: "/home.jpg",
-      headline: "WELCOME TO",
-      tagline: "S&K Egg Shop",
+      id: 1,
+      image: "/home.jpg",
+      title: "Modern Digital Solutions",
       description:
-        "A Visually Stunning Hero Section Featuring A High-Quality Background Image Or Video Of Gold Bars, Gemstones, Forex Trading, Or A Luxurious Business Setting.",
-      buttonText: "Buy Now",
-      className: "welcomeSlide",
-      path: "/newpage/aboutus", // Path to aboutus page
+        "Transform your business with cutting-edge digital strategies tailored to your unique needs.",
+      buttonPrimary: { text: "Get Started", href: "/start" },
+      buttonSecondary: { text: "Learn More", href: "/solutions" },
     },
     {
-      backgroundImage: "/p1.jpg",
-      headline: "Vilage Egg",
+      id: 2,
+      image: "/bitcoin.webp",
+      title: "Creative Design Services",
       description:
-        "Discover the finest certified gemstones, sourced from the world's most exclusive mines. Our collection includes sapphires, rubies, emeralds, and diamonds.",
-      buttonText: "Buy Now",
-      className: "gemsSlide",
-      path: "/newpage/gems", // Path to gems page
+        "Stand out with stunning visuals and intuitive interfaces that captivate your audience.",
+      buttonPrimary: { text: "View Portfolio", href: "/portfolio" },
+      buttonSecondary: { text: "Our Process", href: "/process" },
     },
     {
-      backgroundImage: "/p2.jpg",
-      headline: "Half farm Egg",
+      id: 3,
+      image: "/premium.jpg",
+      title: "E-commerce Excellence",
       description:
-        "Benefit from competitive exchange rates and secure foreign exchange services. We specialize in high-value forex transactions, providing fast, trusted, and efficient currency exchange solutions.",
-      buttonText: "Buy Now",
-      className: "currencySlide",
-      path: "/currency", // Add path for this slide (if needed)
+        "Boost your online sales with our specialized e-commerce solutions and marketing strategies.",
+      buttonPrimary: { text: "Shop Now", href: "/shop" },
+      buttonSecondary: { text: "Case Studies", href: "/cases" },
     },
     {
-      backgroundImage: "/p3.jpg",
-      headline: "Farm Egg",
+      id: 4,
+      image: "/money.jpg",
+      title: "Enterprise Solutions",
       description:
-        "Trade in pure, investment-grade gold, sourced with transparency and certification. We offer secure transactions for gold bars, coins, and bullion, ensuring reliability for investors and collectors.",
-      buttonText: "Buy Now",
-      className: "goldSlide",
-      path: "/gold", // Add path for this slide (if needed)
-    },
-    {
-      backgroundImage: "/p1.jpg",
-      headline: "All Eggs",
-      description:
-        "Elevate your financial experience with our luxury-focused premium services, including exclusive commodity sourcing and high-value investment opportunities tailored for elite clients.",
-      buttonText: "See All",
-      className: "premiumSlide",
-      path: "/premium-services", // Add path for this slide (if needed)
+        "Scalable and secure technology infrastructure to support your growing business needs.",
+      buttonPrimary: { text: "Contact Us", href: "/contact" },
+      buttonSecondary: { text: "Our Clients", href: "/clients" },
     },
   ];
 
-  // Auto-slide functionality
+  // Auto-rotate carousel
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-    }, 10000); // 10 seconds
+      nextSlide();
+    }, 5000);
 
     return () => clearInterval(interval);
-  }, [slides.length]);
+  }, [activeSlide]);
 
-  // Manual slide navigation
-  const goToNextSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
+  const nextSlide = () => {
+    if (!isAnimating) {
+      setIsAnimating(true);
+      setActiveSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+      setTimeout(() => setIsAnimating(false), 600); // Set timeout for animation duration
+    }
   };
 
-  const goToPrevSlide = () => {
-    setCurrentSlide(
-      (prevSlide) => (prevSlide - 1 + slides.length) % slides.length
-    );
+  const prevSlide = () => {
+    if (!isAnimating) {
+      setIsAnimating(true);
+      setActiveSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+      setTimeout(() => setIsAnimating(false), 600); // Set timeout for animation duration
+    }
+  };
+
+  const goToSlide = (index) => {
+    if (!isAnimating && index !== activeSlide) {
+      setIsAnimating(true);
+      setActiveSlide(index);
+      setTimeout(() => setIsAnimating(false), 600);
+    }
   };
 
   return (
-    <div className={styles.heroSection}>
-      {/* Slides Container */}
-      <div
-        className={styles.slidesContainer}
-        style={{ transform: `translateX(-${currentSlide * 20}%)` }}
-      >
+    <section className={styles.coverSection}>
+      <div className={styles.carouselContainer}>
         {slides.map((slide, index) => (
           <div
-            key={index}
-            className={`${styles.slide} ${styles[slide.className]}`}
-            style={{ backgroundImage: `url(${slide.backgroundImage})` }}
+            key={slide.id}
+            className={`${styles.carouselSlide} ${
+              index === activeSlide ? styles.active : ""
+            }`}
+            style={{
+              transform: `translateX(${(index - activeSlide) * 100}%)`,
+              opacity: index === activeSlide ? 1 : 0,
+            }}
           >
+            <div className={styles.slideImageContainer}>
+              <Image
+                src={slide.image}
+                alt={slide.title}
+                fill
+                priority
+                className={styles.slideImage}
+              />
+              <div className={styles.overlay}></div>
+            </div>
+
             <div className={styles.slideContent}>
-              <h1>{slide.headline}</h1>
-              {slide.tagline && <h2>{slide.tagline}</h2>}
-              <p>{slide.description}</p>
-              <button onClick={() => handleButtonClick(slide.path)}>
-                {slide.buttonText}
-              </button>
+              <h2 className={styles.slideTitle}>{slide.title}</h2>
+              <p className={styles.slideDescription}>{slide.description}</p>
+
+              <div className={styles.slideButtons}>
+                <Link href={slide.buttonPrimary.href} className={styles.primaryButton}>
+                  {slide.buttonPrimary.text}
+                </Link>
+                <Link href={slide.buttonSecondary.href} className={styles.secondaryButton}>
+                  {slide.buttonSecondary.text}
+                </Link>
+              </div>
             </div>
           </div>
         ))}
-      </div>
 
-      {/* Navigation Arrows */}
-      <button className={styles.arrowLeft} onClick={goToPrevSlide}>
-        <IoIosArrowBack />
-      </button>
-      <button className={styles.arrowRight} onClick={goToNextSlide}>
-        <IoIosArrowForward />
-      </button>
-    </div>
+        <button className={`${styles.carouselControl} ${styles.prev}`} onClick={prevSlide}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+
+        <button className={`${styles.carouselControl} ${styles.next}`} onClick={nextSlide}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+
+        <div className={styles.indicators}>
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              className={`${styles.indicator} ${index === activeSlide ? styles.activeIndicator : ""}`}
+              onClick={() => goToSlide(index)}
+            ></button>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 
-export default HeroSection;
+export default CoverCarousel;

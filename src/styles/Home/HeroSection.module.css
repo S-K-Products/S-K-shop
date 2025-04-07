@@ -1,272 +1,288 @@
-/* Hero Section */
-.heroSection {
+/* Cover Section */
+.coverSection {
+  position: relative;
   width: 100%;
   height: 100vh;
+  min-height: 600px;
   overflow: hidden;
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+}
+
+.carouselContainer {
   position: relative;
-}
-
-/* Slides */
-.slidesContainer {
-  display: flex;
-  width: 500%;
-  height: 120%;
-  transition: transform 1s ease-in-out;
-}
-
-.slide {
-  flex: 0 0 20%;
+  width: 100%;
   height: 100%;
-  background-size: cover;
-  background-position: center;
+}
+
+.carouselSlide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease, opacity 0.6s ease;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
+  justify-content: center; /* Center carousel content horizontally */
+  align-items: center; /* Center carousel content vertically */
+}
+
+.slideImageContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slideImage {
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s ease;
+}
+
+.slideImageContainer:hover .slideImage {
+  transform: scale(1.05); /* Zoom effect on hover */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
 }
 
 .slideContent {
-  max-width: 800px;
-  padding: 20px;
-  border-radius: 10px;
+  top: 50%;
+  position: absolute;
+  
+  transform: translate(-50%, -50%); /* Ensures center alignment for all screen sizes */
+  max-width: 600px;
+  padding: 2rem;
+  color: white;
+  z-index: 2;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards 0.3s;
+  text-align: center; /* Ensure text is centered */
 }
 
-.slideContent h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+.active .slideContent {
+  animation: slideInFromLeft 0.8s forwards;
 }
 
-.slideContent h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+.slideTitle {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transform: translateY(20px);
+  opacity: 0;
+  animation: slideUp 0.6s forwards 0.5s;
 }
 
-.slideContent p {
+.slideDescription {
   font-size: 1.2rem;
   margin-bottom: 2rem;
+  line-height: 1.6;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: slideUp 0.6s forwards 0.7s;
 }
 
-.slideContent button {
-  padding:20px 40px;
+.slideButtons {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  gap: 1rem;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: slideUp 0.6s forwards 0.9s;
+  justify-content: center; /* Center the buttons horizontally */
+  align-items: center; /* Center the buttons vertically */
+}
+
+/* Button styles */
+.primaryButton,
+.secondaryButton {
+  padding: 0.9rem 2rem;
+  border-radius: 4px;
+  font-weight: 600;
   font-size: 1rem;
-  font-weight: bold;
-  background-color: #F4590F;
-  color: white;
-  border: none;
-  border-radius: 5px;
+  letter-spacing: 0.5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.slideContent button:hover {
-  background-color: #eb8352;
-  border: 2px solid #F4590F;
-}
-
-/* Navigation Arrows */
-.arrowLeft,
-.arrowRight {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: transparent;
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  z-index: 100; /* Ensure arrows are above slides */
-}
-
-.arrowLeft {
-  left: 20px;
-}
-
-.arrowRight {
-  right: 20px;
-}
-
-/* Welcome Slide */
-@font-face {
-  font-family: "Qurova";
-  src: url("/Fonts/QurovaDEMO-Bold.otf") format("woff2");
-  font-weight: normal;
-  font-style: normal;
-}
-
-.welcomeSlide .slideContent {
+  transition: all 0.3s;
+  text-decoration: none;
+  display: inline-block;
   text-align: center;
 }
 
-.welcomeSlide .slideContent h1 {
-  color: #97b3e2;
-  font-size: 30px;
+.primaryButton {
+  background-color: #F4590F;
+  color: white;
+  border: none;
+  box-shadow: 0 4px 15px rgba(255, 85, 0, 0.4);
 }
 
-.welcomeSlide .slideContent h2 {
-  font-size: 60px;
-  line-height: 0%;
-  font-family: "Qurova";
+.secondaryButton {
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+  border: 2px solid white;
 }
 
-.welcomeSlide .slideContent p {
-  margin-top: 25%;
+.primaryButton:hover {
+  background-color: #ffffff;
+  transform: translateY(-3px);
+  color: black;
+  box-shadow: 0 6px 20px rgba(0, 102, 255, 0.5);
 }
 
-/* Gems Slide */
-.gemsSlide .slideContent {
-  text-align: left;
-  margin-bottom: 50px;
+.secondaryButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);
 }
 
-.gemsSlide .slideContent h1 {
-  color: #fd6595;
-  font-size: 60px;
-  font-family: "Qurova";
-}
-
-.gemsSlide .slideContent button {
-  background-color: #8a003b;
-  color: #f3c5c5;
-}
-
-/* Currency Slide */
-.currencySlide .slideContent {
-  text-align: left;
-  margin-bottom: 50px;
-}
-
-.currencySlide .slideContent h1 {
-  color: #6efc43;
-  font-size: 60px;
-  font-family: "Qurova";
-}
-
-.currencySlide .slideContent button {
-  background-color: #2ba502;
-  color: #d7fac9;
-}
-
-/* Gold Slide */
-.goldSlide .slideContent {
-  text-align: left;
-  margin-bottom: 50px;
-}
-
-.goldSlide .slideContent h1 {
-  color: #e7c358;
-  font-size: 60px;
-  font-family: "Qurova";
-}
-
-.goldSlide .slideContent button {
-  background-color: #c79e24;
-  color: #fcfdc7;
-}
-
-/* Premium Services Slide */
-.premiumSlide .slideContent {
-  text-align: left;
-  margin-bottom: 50px;
-}
-
-.premiumSlide .slideContent h1 {
-  color: #ddbfa9;
-  font-size: 60px;
-  font-family: "Qurova";
-}
-
-.premiumSlide .slideContent button {
-  background-color: #cc8958;
-  color: #e4e9dc;
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  .slideContent {
-    text-align: center !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-
-  .slideContent h1 {
-    font-size: 2rem;
-  }
-
-  .slideContent h2 {
-    font-size: 1.5rem;
-  }
-
-  .slideContent p {
-    font-size: 1rem;
-  }
-
-  .slideContent button {
-    font-size: 0.9rem;
-    padding: 8px 16px;
-  }
-
-  .slide {
-    background-size: cover;
-    background-position: top;
-  }
-
-  .arrowLeft,
-  .arrowRight {
-    padding: 8px;
-  }
-
-  /* Welcome */
-  .welcomeSlide .slideContent h1 {
-    font-size: 20px;
-  }
-
-  .welcomeSlide .slideContent h2 {
-    font-size: 35px;
-  }
-
-  .premiumSlide .slideContent h1 {
-    font-size: 40px;
-  }
-}
-
-/* Navigation Arrows */
-.arrowLeft,
-.arrowRight {
+/* Navigation Controls */
+.carouselControl {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  /* background-color: rgba(0, 0, 0, 0.5); */
-  color: white;
+  background: rgba(255, 255, 255, 0.2);
   border: none;
-  padding: 10px; /* Increase padding for larger arrows */
-  cursor: pointer;
   border-radius: 50%;
-  transition: background-color 0.3s ease;
-  z-index: 10; /* Ensure arrows are above slides */
-  font-size: 24px; /* Increase font size for larger arrows */
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s;
+  backdrop-filter: blur(4px);
 }
 
-.arrowLeft {
-  left: 0px;
+.carouselControl:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-50%) scale(1.1);
 }
 
-.arrowRight {
-  right: 0px;
+/* Indicators */
+.indicators {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
 }
 
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  .arrowLeft,
-  .arrowRight {
-    padding: 10px; /* Smaller padding for mobile */
-    font-size: 18px; /* Smaller font size for mobile */
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.activeIndicator {
+  background-color: white;
+  transform: scale(1.2);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
-@media (max-width: 450px) {
-  .welcomeSlide .slideContent h2 {
-    line-height: 100%;
+@keyframes slideInFromLeft {
+  0% {
+    transform: translate(-100px, -50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, -50%);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .coverSection {
+    height: 80vh;
+    /* Ensure the carousel section doesn't overflow on mobile */
+  }
+
+  .carouselSlide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .slideContent {
+    text-align: center;
+    
+    transform: translate(-50%, -50%);
+    padding: 1rem;
+  }
+
+  .slideTitle {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .slideDescription {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .slideButtons {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+    max-width: 250px;
+    margin: 10px auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .coverSection {
+    min-height: 500px;
+  }
+
+  .carouselControl {
+    width: 40px;
+    height: 40px;
   }
 }

@@ -9,6 +9,7 @@
   margin-bottom: 2rem;
   color: #ffffff;
   text-align: center;
+  text-transform: uppercase;
 }
 
 .description2{
@@ -30,7 +31,8 @@
   font-size: 2.5rem;
   text-align: center;
   margin-bottom: 2rem;
-  color: #333;
+  text-transform: uppercase;
+  color: #000000;
 }
 
 .aboutPhoto {
