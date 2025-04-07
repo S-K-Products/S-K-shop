@@ -7,7 +7,7 @@
 .aboutSection h1 {
   font-size: 2.5rem;
   margin-bottom: 2rem;
-  color: #ffffff;
+  color: #000000;
   text-align: center;
   text-transform: uppercase;
 }
@@ -32,7 +32,7 @@
   text-align: center;
   margin-bottom: 2rem;
   text-transform: uppercase;
-  color: #000000;
+  color: #ffffff;
 }
 
 .aboutPhoto {
@@ -46,25 +46,27 @@
 }
 
 .aboutD{
-  color: white;
+  color: rgb(255, 255, 255);
   text-align: center;
   font-size: 20px;
 }
 
 .StoriesContent{
-  background-color: rgba(255, 255, 255, 0);
+  background-color: #f4590f;
   width: 400px;
   height: 400px;
   border-radius: 20px;
-  border: 3px solid gold ;
+  border: 3px solid #000000 ;
 }
 
 .StoriesContent h3{
   margin: 50px 30px;
   font-weight: 100;
   font-size: 15px;
-  color: white;
+  color: rgb(255, 255, 255);
   line-height: 100%;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
   font-family: system-ui, outifit;
 }
 
@@ -82,7 +84,7 @@
   margin-left: 120px;
   font-weight: 600;
   font-size: 20px;
-  color: white;
+  color: rgb(255, 255, 255);
   line-height: 100%;
   font-family: 'Poppins', sans-serif;
 }
@@ -118,7 +120,7 @@
 .aboutContent p {
   font-size: 22px;
   line-height: 1.5;
-  color: #d8d5d5;
+  color: #000000;
 }
 
 .aboutButton {

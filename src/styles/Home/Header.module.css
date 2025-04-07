@@ -29,20 +29,41 @@
 
 /* Logo */
 .logo {
+  position: relative; /* Make sure the overlay is positioned relative to this container */
+  width: 150px; /* Set the container's width */
+  height: 80px; /* Set the container's height */
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   cursor: pointer;
+  
+}
+
+
+.logo::before {
+  content: ""; /* Create the overlay element */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(255, 255, 255); /* White background */
+  opacity: 1; /* Adjust the opacity of the overlay */
+
+  border-radius: 10px; /* Optionally, add rounded corners */
+  z-index: 1; /* Ensure the overlay is behind the logo */
 }
 
 .logoImage {
-  width: 150px; /* Adjust logo width */
-  height: auto; /* Ensure the height adjusts automatically */
+  width: 150px; /* Set the logo width */
+  height: auto; /* Keep the height auto so it maintains the aspect ratio */
   transition: transform 0.3s ease;
+  z-index: 2; /* Ensure the logo image appears above the overlay */
 }
 
+
 .logo:hover .logoImage {
-  transform: scale(1.05); /* Slight zoom on hover */
+  transform: scale(1.08); /* Slight zoom on hover */
 }
 
 /* Desktop Menu */
@@ -59,10 +80,10 @@
 
 .navLink {
   text-transform: uppercase;
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: 500;
   letter-spacing: 0.05em;
-  color: #000000;
+  color: #ffffff;
   text-decoration: none;
   padding: 0.5rem 0.25rem;
   position: relative;
@@ -70,7 +91,7 @@
 }
 
 .navLink:hover {
-  color: #ffffff;
+  color: #000000;
 }
 
 .navLink:hover::after {
@@ -80,7 +101,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: rgba(59, 130, 246, 0.4); 
+  background-color: rgb(255, 255, 255); 
 }
 
 .active {

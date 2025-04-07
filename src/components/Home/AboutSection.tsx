@@ -2,11 +2,11 @@ import styles from "../../styles/Home/AboutSection.module.css";
 
 const AboutSection = () => {
   return (
-    <section className={styles.aboutSection}><br />
+    <section className={styles.aboutSection}><br /><br />
       <h1>About Us</h1>
       <div className={styles.aboutContainer}>
         <div className={styles.aboutPhoto}>
-          <img src="/AboutUs.jpg" alt="About Us" />
+          <img src="/egg-05.png" alt="About Us" />
         </div>
         <div className={styles.aboutContent}>
           <p>

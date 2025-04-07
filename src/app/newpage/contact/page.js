@@ -7,7 +7,6 @@ export default function GemsPage() {
   return (
     <>
       <Header />
-
       <ContactSection />
       <QuickLinks />
     </>

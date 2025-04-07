@@ -60,17 +60,18 @@
     background: #F4590F;
     border-radius: 7px;
     font-size: 17px;
-    color: rgb(196, 236, 200);
+    color: rgb(255, 255, 255);
     padding: 10px 20px;
     border: none;
     cursor: pointer;
     font-weight: bold;
+    
   }
 
   .submitButton:hover{
-    background-color: #eb8352;
+    background-color: #000000;
     color: #ffffff;
-    border: solid -100px #f75f19;
+    border: solid -100px #f4590f;
   }
   
   .links {
@@ -106,7 +107,7 @@
   .locationRow {
     display: flex;
     align-items: center;
-    background: #eb8352;
+    background: #f4590f;
     height: 300px;
     padding: 25px;
     border-radius: 8px;

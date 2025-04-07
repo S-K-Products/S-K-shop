@@ -11,41 +11,42 @@ const CoverCarousel = () => {
   const slides = [
     {
       id: 1,
-      image: "/home.jpg",
-      title: "Modern Digital Solutions",
+      image: "/egg-01.png",
+      title: "Fresh Farm Eggs",
       description:
-        "Transform your business with cutting-edge digital strategies tailored to your unique needs.",
-      buttonPrimary: { text: "Get Started", href: "/start" },
-      buttonSecondary: { text: "Learn More", href: "/solutions" },
+        "Get the freshest eggs directly from our farm, packed with nutrients and flavor.",
+      buttonPrimary: { text: "Contact Now", href: "/newpage/contact" },
+      
     },
     {
       id: 2,
-      image: "/bitcoin.webp",
-      title: "Creative Design Services",
+      image: "/egg-02.png",
+      title: "Organic Egg Options",
       description:
-        "Stand out with stunning visuals and intuitive interfaces that captivate your audience.",
-      buttonPrimary: { text: "View Portfolio", href: "/portfolio" },
-      buttonSecondary: { text: "Our Process", href: "/process" },
+        "Choose from our wide selection of organic eggs, perfect for your healthy lifestyle.",
+      buttonPrimary: { text: "View Products", href: "/newpage/product" },
+      
     },
     {
       id: 3,
-      image: "/premium.jpg",
-      title: "E-commerce Excellence",
+      image: "/egg-03.png",
+      title: "Premium Grade Eggs",
       description:
-        "Boost your online sales with our specialized e-commerce solutions and marketing strategies.",
-      buttonPrimary: { text: "Shop Now", href: "/shop" },
-      buttonSecondary: { text: "Case Studies", href: "/cases" },
+        "Indulge in the best quality eggs, from carefully raised hens to your kitchen.",
+      buttonPrimary: { text: "Order Now", href: "/newpage/contact" },
+      
     },
     {
       id: 4,
-      image: "/money.jpg",
-      title: "Enterprise Solutions",
+      image: "/egg-04.png",
+      title: "Egg Delivery Services",
       description:
-        "Scalable and secure technology infrastructure to support your growing business needs.",
-      buttonPrimary: { text: "Contact Us", href: "/contact" },
-      buttonSecondary: { text: "Our Clients", href: "/clients" },
+        "Enjoy the convenience of having fresh eggs delivered right to your doorsteps.",
+      buttonPrimary: { text: "Get Started", href: "/newpage/services" },
+      // buttonSecondary: { text: "See Delivery Areas", href: "/delivery-areas" },
     },
   ];
+  
 
   // Auto-rotate carousel
   useEffect(() => {
@@ -113,9 +114,7 @@ const CoverCarousel = () => {
                 <Link href={slide.buttonPrimary.href} className={styles.primaryButton}>
                   {slide.buttonPrimary.text}
                 </Link>
-                <Link href={slide.buttonSecondary.href} className={styles.secondaryButton}>
-                  {slide.buttonSecondary.text}
-                </Link>
+                
               </div>
             </div>
           </div>

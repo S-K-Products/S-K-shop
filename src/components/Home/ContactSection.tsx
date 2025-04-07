@@ -3,7 +3,7 @@ import { FaMapMarkerAlt, FaPhoneAlt, FaClock } from "react-icons/fa";
 
 const Contact = () => {
   return (
-    <div className={styles.contactContainer}>
+    <div className={styles.contactContainer}><br /><br /><br />
       <h2 className={styles.title}>Connect With Us</h2>
 
       <div className={styles.content}>
@@ -31,8 +31,8 @@ const Contact = () => {
                 loading="lazy"
               ></iframe>
               <div className={styles.locationDetails}>
-                <p><FaMapMarkerAlt className={styles.icon} /> Trafalgar Square, London WC2N 5DN, UK</p>
-                <p><FaPhoneAlt className={styles.icon} /> +94 74 948 8473</p>
+                <p><FaMapMarkerAlt className={styles.icon} /> Sri Lanka, Anuradhapura</p>
+                <p><FaPhoneAlt className={styles.icon} /> +94 76 053 1281</p>
                 <p><FaClock className={styles.icon} /> 8 a.m - 5 a.m</p>
               </div>
             </div>

@@ -8,33 +8,19 @@ const ServicesSection = () => {
     {
       title: "Village Egg",
       description: "Clean eggs from clean hens in the village. More nutritious",
-      image: "/p1.jpg",
+      image: "/village-egg.png",
     },
     {
       title: "Half farm Egg",
       description: "Eggs from non-farm hens mmmm.",
-      image: "/p2.jpg",
+      image: "/half-farm-egg.png",
     },
     {
       title: "Farm Egg",
       description: "Fresh eggs from farm hens. Nutrient is low",
-      image: "/p3.jpg",
+      image: "/farm-eggs.png",
     },
-    {
-      title: "Village Egg",
-      description: "Clean eggs from clean hens in the village. More nutritious",
-      image: "/p1.jpg",
-    },
-    {
-      title: "Half farm Egg",
-      description: "Eggs from non-farm hens mmmm.",
-      image: "/p2.jpg",
-    },
-    {
-      title: "Farm Egg",
-      description: "Fresh eggs from farm hens. Nutrient is low",
-      image: "/p3.jpg",
-    },
+    
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -59,7 +45,7 @@ const ServicesSection = () => {
   };
 
   return (
-    <section className={styles.servicesSection}>
+    <section className={styles.servicesSection}><br /><br />
       <h2>Our Products</h2>
       <div className={styles.servicesContainer}>
         {services.map((service, index) => {
